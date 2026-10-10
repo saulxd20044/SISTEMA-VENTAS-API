@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Put, Query } from '@nestjs/common';
 import { CategoriesService } from './categories.service.js';
 import { CreateCategoryDto } from './dto/create-category.dto.js';
 import { PaginationDto } from '../common/dto/pagination.dto.js';
@@ -15,7 +15,7 @@ export class CategoriesController {
     return this.categoriesService.create(CreateCategoryDto);
   }
   @Get()
-  get(@Body() paginationDto: PaginationDto){
+  get(@Query() paginationDto: PaginationDto){
     return this.categoriesService.findAll(paginationDto)
   }
 

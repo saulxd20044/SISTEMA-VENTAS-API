@@ -5,13 +5,13 @@ export class PaginationDto {
   @IsOptional()
   @Type(() => Number) // <-- Transforma el string de la URL a número
   @IsInt()
-  @Min(1)
+  @Min(0) // page=0 y limit=0 significan "traer todos los registros"
   page?: number = 1;
 
   @IsOptional()
   @Type(() => Number) // <-- Transforma el string de la URL a número
   @IsInt()
-  @Min(1)
+  @Min(0)
   limit?: number = 10;
 
   @IsOptional()

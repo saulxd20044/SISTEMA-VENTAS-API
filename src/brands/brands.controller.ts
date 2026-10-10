@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put, Query } from '@nestjs/common';
 import { BrandsService } from './brands.service.js';
 import { CreateBrandDto } from './dto/create-brand.dto.js';
 import { UpdateBrandDto } from './dto/update-brand.dto.js';
@@ -17,7 +17,7 @@ export class BrandsController {
   }
 
   @Get()
-  findAll(@Body() paginationDto : PaginationDto) {
+  findAll(@Query() paginationDto: PaginationDto) {
     return this.brandsService.findAll(paginationDto);
   }
 
